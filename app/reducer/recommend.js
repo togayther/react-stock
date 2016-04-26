@@ -1,8 +1,8 @@
 import * as types from '../constant/actiontype';
-import * as articleData from '../mock/article';
+import * as recommendData from '../mock/recommend';
 
 
-export default function article(state = [], action = {}) {
+export default function recommend(state = [], action = {}) {
   const {
         type, payload
   } = action;
@@ -14,25 +14,24 @@ export default function article(state = [], action = {}) {
         // ==============================================
         // 列表
         // ==============================================
-        case types.FETCH_ARTICLES:
+        case types.FETCH_RECOMMENDS:
 
             return {
                 ...state,
                 ...payload
             };
-        case types.FETCH_ARTICLES_SUCCESS:
-
+        case types.FETCH_RECOMMENDS_SUCCESS:
             successData = {
                 status : 1,
                 message : "加载成功",
-                results : articleData.items //payload.results
+                results : recommendData.items //payload.results
             };
 
             return {
                 ...state,
                 ...successData
             };
-        case types.FETCH_ARTICLES_FAILURE:
+        case types.FETCH_RECOMMENDS_FAILURE:
             failureData = {
                 status : -1,
                 message : "加载失败",
@@ -43,7 +42,8 @@ export default function article(state = [], action = {}) {
                 ...state,
                 ...failureData
             };  
-            
+        
+
         default:
             return state;
     }

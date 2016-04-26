@@ -1,11 +1,17 @@
 export const items = [{
-    icon: "ion-ios-compose-outline",
-    activeIcon: "ion-ios-compose",
-    text: "签约服务",
+    icon: "iconfont icon-layers",
+    text: "服务",
     link: "/Product"
 }, {
-    icon: "ion-ios-paperplane-outline",
-    activeIcon: "ion-ios-paperplane",
-    text: "历史操作",
+    icon: "iconfont icon-linegraph",
+    text: "行情",
+    link: "/Message"
+},{
+    icon: "iconfont icon-upload",
+    text: "交易",
+    link: "/Message"
+},{
+    icon: "iconfont icon-heart",
+    text: "开户",
     link: "/Message"
 }]

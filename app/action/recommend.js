@@ -1,11 +1,12 @@
 import * as types from './../constant/actiontype';
 
-export function fetchArticles() {
+export function fetchRecommends() {
   return  (dispatch, getState) => {
+    
     let { status = 0, message = '加载中', loader = true } = {};
 
     dispatch({
-      type: [types.FETCH_ARTICLES, types.FETCH_ARTICLES_SUCCESS, types.FETCH_ARTICLES_FAILURE],
+      type: [types.FETCH_RECOMMENDS, types.FETCH_RECOMMENDS_SUCCESS, types.FETCH_RECOMMENDS_FAILURE],
       payload:{
         status,
         loader,

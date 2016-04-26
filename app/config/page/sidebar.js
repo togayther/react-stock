@@ -1,13 +1,25 @@
+/*
 export const items = [{
-    icon: "ion-ios-compose-outline",
-    text: "第一个菜单",
+    icon: "iconfont icon-profilemale",
+    text: "手机开户",
     link: "/Product"
 }, {
-    icon: "ion-ios-paperplane-outline",
-    text: "第二个菜单",
+    icon: "iconfont icon-mappin",
+    text: "50元开户奖励",
     link: "/Message"
 },{
-    icon: "ion-ios-paperplane-outline",
-    text: "第三个菜单",
+    icon: "iconfont icon-bargraph",
+    text: "50元交易奖励",
+    link: "/Message"
+},{
+    icon: "iconfont icon-heart",
+    text: "意见反馈",
+    link: "/Message"
+},{
+    icon: "iconfont icon-tools2",
+    text: "关于我们",
     link: "/Message"
 }]
+*/
+
+export const items = []

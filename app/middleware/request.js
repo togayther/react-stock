@@ -31,7 +31,7 @@ export default function request({ dispatch }) {
       error: false,
       payload: {
         message:"",
-        status:1
+        status: 1
       }
     });
 
