@@ -6,7 +6,9 @@ import Root from './root';
 import { Store } from './store';
 import { hashHistory } from 'react-router';
 
-import '../asset/sass/app.scss';
+if (process.env.NODE_ENV !== 'production') {
+  require('../asset/sass/app.scss');
+}
 
 ReactDOM.render(
 	<Root history={ hashHistory } store={ Store } />,

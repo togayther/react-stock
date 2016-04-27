@@ -46,7 +46,7 @@ class RecommendDetailApp extends React.Component {
     let recommendInfo = this.getRecommendInfo();
 
     return (
-      <Container 
+      <Container { ...this.props}
       titleEnabled = { true }
       returnEnabled = { true }
       menuEnabled = { false }
@@ -56,9 +56,8 @@ class RecommendDetailApp extends React.Component {
             <section>
                 <h2 className="title">{ recommendInfo.title }</h2>
                 <section>
-                    <div>
-                      { recommendInfo.content }
-                    </div>
+                    <p dangerouslySetInnerHTML={{__html: recommendInfo.content}}>
+                    </p>
                 </section>
             </section>
         </Article>

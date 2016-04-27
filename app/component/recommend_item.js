@@ -34,9 +34,10 @@ class RecommendItem extends React.Component {
          <MediaBox type="appmsg">
             <MediaBoxHeader>{ appMsgIcon }</MediaBoxHeader>
             <MediaBoxBody>
-                <MediaBoxTitle>盘前股讯</MediaBoxTitle>
+                <MediaBoxTitle>{ recommend.title }</MediaBoxTitle>
                 <MediaBoxDescription>
-                    { recommend.title }
+                    <p dangerouslySetInnerHTML={{__html: recommend.content}}>
+                    </p>
                 </MediaBoxDescription>
             </MediaBoxBody>
         </MediaBox>

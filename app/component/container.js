@@ -28,15 +28,20 @@ class Container extends React.Component {
     
   }
 
+  componentDidMount(){
+  }
+
   onSetSidebarOpen(sidebarOpen) {
     this.setState({sidebarOpen: sidebarOpen});
   }
 
-  onReturnClick(){
-    window.history.go(-1);
+  onReturnClick(e){
+    e.preventDefault();
+    this.context.router.goBack();
   }
 
-  onSidebarMenuClick(){
+  onSidebarMenuClick(e){
+    e.preventDefault();
   	this.onSetSidebarOpen(!this.state.sidebarOpen);	
   }
 
@@ -99,6 +104,9 @@ class Container extends React.Component {
       "icon-menu": !returnEnabled
     });
 
+    console.info("returnEnabled");
+    console.info(returnEnabled);
+
     let onIconClick = (
       returnEnabled===true?
       this.onReturnClick
@@ -108,7 +116,7 @@ class Container extends React.Component {
 
     return(
       <span>
-         <a href="#" 
+         <a href="javascript:;" 
           className="panel-header-sidebar"
           onClick={ onIconClick.bind(this) } >
           <i className={ iconClass }></i>
@@ -118,40 +126,67 @@ class Container extends React.Component {
     );
   }
 
+  onExternalLinkClick(data, e){
+    window.location.href = data;
+    e.preventDefault();
+  }
+
   renderMenuItem(item, index){
 
+    //判断该菜单项是否激活
+    let isMenuActive = 
+      (index == 0 && !this.props.route.path) || 
+      (!item.onClick && this.context.router.isActive(item.link))
+
     let itemClass = classNames( "weui_tabbar_item",{
-      "weui_bar_item_on": index<1
+      "weui_bar_item_on": isMenuActive
     });
 
+    let linkParameter = {
+      className: itemClass,
+      key : index
+    };
+    if(item.onClick && this[item.onClick]){
+      linkParameter.onClick = this[item.onClick].bind(this, item.link);
+      linkParameter.to = "";
+    }else{
+      linkParameter.onClick = null;
+      linkParameter.to = item.link;
+    }
+
     return (
-        <Link to={item.link} className={ itemClass } key={ index}>
+        <Link {...linkParameter}>
+
           <div className="weui_tabbar_icon">
               <i className= { item.icon }></i>
           </div>
           <p className="weui_tabbar_label">{ item.text }</p>
+
         </Link>
     );
   }
 
   renderMenuContent(){
-    let { menuEnabled } = this.props;
 
+    let { menuEnabled } = this.props;
     let menuItems = MenuConfig.items;
 
     return (
       menuEnabled === true?
-        <div className="weui_tab">
-          <div className="weui_tabbar">
-              {
-                menuItems && menuItems.map(
-                  (item, index) => (
-                      this.renderMenuItem(item, index)
-                  )
-                )
-              }
+        <div>
+          <div className="blank60"></div>
+          <div className="weui_tab">
+              <div className="weui_tabbar">
+                  {
+                    menuItems && menuItems.map(
+                      (item, index) => (
+                          this.renderMenuItem(item, index)
+                      )
+                    )
+                  }
+              </div>
           </div>
-      </div>
+        </div>
       :
       null
     );
@@ -175,7 +210,6 @@ class Container extends React.Component {
 
     let sidebarContent = this.renderSidebarContent();
     let mainContent = this.renderMainContent();
-
     let menuContent = this.renderMenuContent();
 
     return (
@@ -196,5 +230,5 @@ class Container extends React.Component {
 export default connect(state => ({
     
 }), dispatch => ({
-
+    
 }))(Container);

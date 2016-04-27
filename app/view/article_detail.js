@@ -46,7 +46,7 @@ class ArticleDetailApp extends React.Component {
     let articleInfo = this.getArticleInfo();
 
     return (
-      <Container 
+      <Container { ...this.props}
       titleEnabled = { true }
       returnEnabled = { true }
       menuEnabled = { false }
@@ -56,9 +56,8 @@ class ArticleDetailApp extends React.Component {
             <section>
                 <h2 className="title">{ articleInfo.title }</h2>
                 <section>
-                    <div>
-                      { articleInfo.content }
-                    </div>
+                    <p dangerouslySetInnerHTML={{__html: articleInfo.content}}>
+                    </p>
                 </section>
             </section>
         </Article>

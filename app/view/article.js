@@ -2,9 +2,12 @@ import React from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { Link } from 'react-router';
+import Carousel  from 'nuka-carousel';
 import Container from '../component/container';
 import * as ArticleAction from '../action/article';
 import ArticleItem from '../component/article_item';
+import CarouselDecorators from '../component/carousel_decorator';
+
 import {
     Panel,
     PanelHeader,
@@ -20,6 +23,19 @@ class ArticleApp extends React.Component {
 
   componentDidMount(){
     this.props.articleAction.fetchArticles();
+  }
+
+  renderAdvertList(){
+    return (
+      <Carousel decorators = { CarouselDecorators } className="carousel-container">
+        <Link to={`/home`}>
+          <img src="http://placehold.it/1000x400/ffffff/c0392b/&text=slide1"/>
+        </Link>
+        <Link to={`/home`}>
+          <img src="http://placehold.it/1000x400/ffffff/c0392b/&text=slide2"/>
+        </Link>
+      </Carousel>
+    );
   }
 
   renderArticleList(){
@@ -45,15 +61,19 @@ class ArticleApp extends React.Component {
 
   render() {
 
+    let advertList = this.renderAdvertList();
+
     let articleList = this.renderArticleList();
 
     return (
-      <Container 
+      <Container { ...this.props}
         titleEnabled = { true }
         titleText = { '策略热文' }
         returnEnabled = { true }
         menuEnabled = { false }
         sidebarEnabled = { true }>
+
+          { advertList }
           
           { articleList }
 

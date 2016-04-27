@@ -1,12 +1,14 @@
 {
-  "author": "mcmurphy",
+  "author": "togayther",
   "name": "Finland",
-  "repository": "https://github.com/fuckusername/react-mammon",
+  "repository": "https://github.com/togayther/react-stock",
   "description": "Finland",
   "version": "0.0.1",
   "main": "./app/app.js",
   "scripts": {
-    "start": "node ./server.js"
+    "start": "node ./server.js",
+    "build": "webpack -p --define process.env.NODE_ENV='\"production\"' --progress --colors",
+    "dist": "grunt build"
   },
   "keywords": [
     "react",
@@ -29,6 +31,7 @@
     "css-loader": "^0.23.1",
     "extract-text-webpack-plugin": "^1.0.1",
     "file-loader": "^0.8.5",
+    "nuka-carousel": "^1.2.0",
     "postcss-loader": "^0.8.2",
     "react": "^15.0.1",
     "react-addons-css-transition-group": "^15.0.1",
@@ -47,5 +50,13 @@
     "webpack-dev-server": "^1.14.1",
     "whatwg-fetch": "^0.11.0"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "grunt": "^1.0.1",
+    "grunt-autoprefixer": "^3.0.4",
+    "grunt-contrib-concat": "^1.0.1",
+    "grunt-contrib-copy": "^1.0.0",
+    "grunt-contrib-cssmin": "^1.0.1",
+    "grunt-contrib-uglify": "^1.0.1",
+    "grunt-sass": "^1.1.0"
+  }
 }

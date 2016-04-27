@@ -2,11 +2,12 @@ var webpack = require('webpack');
 var path = require('path');
 var autoprefixer = require('autoprefixer');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
+
 module.exports = {
     entry: ['webpack-dev-server/client?http://127.0.0.1:9090', 'webpack/hot/dev-server', './app/app.js'],
     output: {
-        publicPath: 'http://127.0.0.1:9090/build/js/',
-        path: __dirname + '/build/js/',
+        publicPath: 'http://127.0.0.1:9090/dist/js/',
+        path: __dirname + '/dist/js/',
         filename: 'bundle.js'
     },
     resolve: {

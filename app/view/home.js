@@ -2,13 +2,14 @@ import React from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { Link } from 'react-router';
+import Carousel  from 'nuka-carousel';
 import * as ArticleAction from '../action/article';
 import * as RecommendAction from '../action/recommend';
 
 import Container from '../component/container';
 import ArticleItem from '../component/article_item';
 import RecommendItem from '../component/recommend_item';
-
+import CarouselDecorators from '../component/carousel_decorator';
 
 import {
     Panel,
@@ -29,6 +30,20 @@ class HomeApp extends React.Component {
     this.props.recommendAction.fetchRecommends();
   }
 
+  renderAdvertList(){
+    
+    return (
+      <Carousel decorators = { CarouselDecorators } className="carousel-container">
+        <Link to={`home`}>
+          <img src="http://placehold.it/1000x400/ffffff/c0392b/&text=slide1"/>
+        </Link>
+        <Link to={`home`}>
+          <img src="http://placehold.it/1000x400/ffffff/c0392b/&text=slide2"/>
+        </Link>
+      </Carousel>
+    );
+  }
+
   renderRecommendList(){
 
     let { recommends } = this.props;
@@ -41,7 +56,7 @@ class HomeApp extends React.Component {
             <PanelBody>
                 {
                   (recommends && recommends.results && recommends.results.length>0) ?
-                  recommends.results.map((recommend, index) =>  
+                  recommends.results.slice(0, 1).map((recommend, index) =>  
                     <RecommendItem recommend={ recommend } key={ index} />
                   )
                   :
@@ -91,16 +106,20 @@ class HomeApp extends React.Component {
 
   render() {
 
+    let advertList = this.renderAdvertList();
+
     let recommendList = this.renderRecommendList();
 
     let articleList = this.renderArticleList();
 
     return (
-      <Container 
+      <Container { ...this.props}
       titleEnabled = { true }
       titleText = { '服务' }
       menuEnabled = { true }
       sidebarEnabled = { true }>
+
+        { advertList }
         
         { recommendList }
 

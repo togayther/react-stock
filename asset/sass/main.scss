@@ -9,13 +9,6 @@ body {
 
 .panel-container {
   font-weight: 300;
-
-  &:after { 
-    display: block;
-    content:'';
-    height: 60px;
-  }
-
   .panel-header-title{
     background-color: $mainColor;
     color: #444;
@@ -111,8 +104,22 @@ body {
   }
 }
 
+.carousel-container{
+  .slider-slide{
+    a{
+      display: block;
+      img{
+        width: 100%;
+        max-width: 100%;
+        display: block;
+      }
+    }
+  }
+}
+
 .blank60{
   display: block;
+  content:'';
   height: 60px;
 }
 

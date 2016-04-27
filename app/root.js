@@ -18,6 +18,7 @@ class Root extends React.Component {
               <IndexRoute component={ View.Home } />
               <Route path='/login' component={ View.Login } />
               <Route path='/home' component={ View.Home } />
+              <Route path='/account' component={ View.Account } />
               <Route path='/article' component={ View.Article } />
               <Route path="/articledetail" component={View.ArticleDetail} />
               <Route path='/recommend' component={ View.Recommend } />
