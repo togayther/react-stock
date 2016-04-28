@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name='viewport' content='width=device-width, initial-scale=1, maximum-scale=1'>
+	<title>华西证券股票专家</title>
+	<link rel="stylesheet" href="css/bundle.min.css"/>
+	<style type="text/css">
+		.spinner {
+		    width: 50px;
+		    height: 50px;
+		    margin: 100px auto;
+		    background-color: #f9af20;
+		    border-radius: 100%;
+		    -webkit-animation: sk-scaleout 1.0s infinite ease-in-out;
+		    animation: sk-scaleout 1.0s infinite ease-in-out;
+		}
+
+		@-webkit-keyframes sk-scaleout {
+		    0% {
+		        -webkit-transform: scale(0)
+		    }
+		    100% {
+		        -webkit-transform: scale(1.0);
+		        opacity: 0;
+		    }
+		}
+
+		@keyframes sk-scaleout {
+		    0% {
+		        -webkit-transform: scale(0);
+		        transform: scale(0);
+		    }
+		    100% {
+		        -webkit-transform: scale(1.0);
+		        transform: scale(1.0);
+		        opacity: 0;
+		    }
+		}
+
+		#preloader {
+		    position: fixed;
+		    height: 100%;
+		    width: 100%;
+		    top: 0;
+		    right: 0;
+		    bottom: 0;
+		    left: 0;
+		    z-index: 999;
+		    background: #f8f8f8;
+		    display: -moz-box;
+		    display: -ms-flexbox;
+		    display: -webkit-box;
+		    display: -webkit-flex;
+		    display: box;
+		    display: flexbox;
+		    display: flex;
+		}
+
+		#preloader > .loader-inner {
+		    -webkit-box-flex: 1;
+		    -webkit-flex: auto;
+		    -ms-flex: auto;
+		    flex: auto;
+		    display: -moz-box;
+		    display: -ms-flexbox;
+		    display: -webkit-box;
+		    display: -webkit-flex;
+		    display: box;
+		    display: flexbox;
+		    display: flex;
+		    -weblign: center;
+		    -webkit-align-items: center;
+		    -ms-flex-align: center;
+		    align-items: center;
+		    -webkit-box-pack: center;kit-box-a
+		    -webkit-justify-content: center;
+		    -ms-flex-pack: center;
+		    justify-content: center;
+		}
+	</style>
+	<script type="text/javascript" src="cordova.js"></script>
+	<script type="text/javascript">
+
+		document.addEventListener("deviceready", onDeviceReady, false);
+		function onDeviceReady() {
+		    console.info("hello world");
+		}
+
+		var timer = setTimeout(function(){
+        	clearTimeout(timer);
+	        var loaderElement = document.getElementById('preloader');
+            loaderElement.style.display = "none";
+        }, 3000);
+	</script>
+</head>
+<body>
+	<div id="preloader">
+        <div class="loader-inner">
+            <div class="spinner">
+            </div>
+        </div>
+    </div>
+	<div id="main"></div>
+	<script type="text/javascript" src="js/bundle.min.js"></script>
+</body>
+</html>

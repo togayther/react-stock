@@ -6,7 +6,7 @@
 
 		pkg: grunt.file.readJSON('package.json'),
 
-        buildPath : 'build/www',
+        buildPath : 'dist/www',
 
         banner: '/*!\n' +
             ' * Finland v<%= pkg.version %> (<%= pkg.repository %>)\n' +
@@ -48,7 +48,7 @@
                 banner: '<%= banner %>'
             },
             dist: { 
-                src: ['dist/js/bundle.js'],
+                src: ['build/js/bundle.js'],
                 dest: '<%= buildPath %>/js/bundle.min.js'
             }
         },

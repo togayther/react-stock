@@ -7,14 +7,16 @@
   "main": "./app/app.js",
   "scripts": {
     "start": "node ./server.js",
-    "build": "webpack -p --define process.env.NODE_ENV='\"production\"' --progress --colors",
+    "build": "webpack -p --define process.env.NODE_ENV='\"production\"' --config webpack.dist.config.js --progress --colors",
     "dist": "grunt build"
   },
   "keywords": [
     "react",
     "react-redux",
     "react-router",
-    "webpack"
+    "webpack",
+    "escript2015",
+    "cordova"
   ],
   "dependencies": {
     "autoprefixer": "^6.3.6",

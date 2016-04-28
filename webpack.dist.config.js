@@ -1,12 +1,11 @@
 var webpack = require('webpack');
 var path = require('path');
-var autoprefixer = require('autoprefixer');
 
 module.exports = {
     entry: ['./app/app.js'],
     output: {
-        publicPath: 'dist/js/',
-        path: __dirname + '/dist/js/',
+        publicPath: 'build/js/',
+        path: __dirname + '/build/js/',
         filename: 'bundle.js'
     },
     resolve: {

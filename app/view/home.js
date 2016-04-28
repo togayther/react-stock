@@ -35,10 +35,10 @@ class HomeApp extends React.Component {
     return (
       <Carousel decorators = { CarouselDecorators } className="carousel-container">
         <Link to={`home`}>
-          <img src="http://placehold.it/1000x400/ffffff/c0392b/&text=slide1"/>
+          <img src="http://o2o.hx168.com.cn/hxfinance/Public/Upload/Image/2016-04-28/1461829923.png"/>
         </Link>
         <Link to={`home`}>
-          <img src="http://placehold.it/1000x400/ffffff/c0392b/&text=slide2"/>
+          <img src="http://o2o.hx168.com.cn/hxfinance/Public/Upload/Image/2016-04-28/1461829927.png"/>
         </Link>
       </Carousel>
     );

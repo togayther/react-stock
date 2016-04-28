@@ -103,10 +103,7 @@ class Container extends React.Component {
       "icon-arrowleft": returnEnabled===true,
       "icon-menu": !returnEnabled
     });
-
-    console.info("returnEnabled");
-    console.info(returnEnabled);
-
+    
     let onIconClick = (
       returnEnabled===true?
       this.onReturnClick
